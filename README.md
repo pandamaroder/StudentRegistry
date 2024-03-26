@@ -1,4 +1,4 @@
-## Core Java JVM and Spring Cookbooks and Examples
+## Core Java JVM and SpringBoot Cookbooks and Examples
 
 Demo console app for Student Registration (SpringBoot)
 
@@ -14,13 +14,14 @@ Demo console app for Student Registration (SpringBoot)
 - Java 17+
 - Spring Boot 2.4
 
-## Profiles and initial configuration
+## Description
 
+Консольное приложение, реализованное с помощью Spring Shell.
 
-
-## Saved Contacts configuration
-
-
+Каждая из этих команд будет вызывать соответствующий метод
+StudentCommands и, в свою очередь, методы StudentService.
+Результаты будут отображаться в консоли в соответствии с логикой,
+реализованной в приложении и возвращаемых типах данных.
 
 ## Run locally
 
@@ -30,11 +31,11 @@ Demo console app for Student Registration (SpringBoot)
 
 Для добавления нового студента:
 
-addStudent John Doe 25
+addStudent <Имя> <Фамилия> <Возраст>
 
 Для удаления студента по идентификатору:
 
-deleteStudent 123
+deleteStudent <Id>
 
 Для получения списка всех студентов:
 
@@ -44,10 +45,4 @@ getAllStudents
 
 clearAllStudents
 
-Консольное приложение, реализованное с помощью Spring Shell.
 
-Ч
-Каждая из этих команд будет вызывать соответствующий метод 
-StudentCommands и, в свою очередь, методы StudentService. 
-Результаты будут отображаться в консоли в соответствии с логикой,
-реализованной в приложении и возвращаемых типах данных.
