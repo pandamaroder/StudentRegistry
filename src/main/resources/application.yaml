@@ -1,0 +1,11 @@
+spring:
+  shell:
+    prompt: 'student-shell> '
+
+logging:
+  level:
+    root: INFO
+
+student:
+  default:
+    age: 20
