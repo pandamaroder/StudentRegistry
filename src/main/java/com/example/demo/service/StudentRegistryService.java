@@ -1,11 +1,10 @@
-package com.example.Service;
+package com.example.demo.service;
 
 
-import com.example.Model.Student;
+import com.example.demo.model.Student;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

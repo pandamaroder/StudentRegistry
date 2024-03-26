@@ -1,4 +1,4 @@
-package com.example.Listeners;
+package com.example.demo.listeners;
 
 public class StudentDeleteEvent {
 }

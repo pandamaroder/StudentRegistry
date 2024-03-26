@@ -1,8 +1,8 @@
-package com.example;
+package com.example.demo;
 
 
-import com.example.Model.Student;
-import com.example.Service.StudentRegistryService;
+import com.example.demo.model.Student;
+import com.example.demo.service.StudentRegistryService;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 

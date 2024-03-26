@@ -1,8 +1,7 @@
-package com.example.Model;
+package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
 @Data
 @AllArgsConstructor
