@@ -1,6 +1,6 @@
 spring:
-  shell:
-    prompt: 'student-shell> '
+    shell:
+      prompt: 'student-shell> '
 
 logging:
   level:
