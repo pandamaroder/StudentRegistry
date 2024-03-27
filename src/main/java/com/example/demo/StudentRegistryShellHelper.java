@@ -1,7 +1,5 @@
 package com.example.demo;
 
-
-import com.example.demo.listeners.StudentEventListener;
 import com.example.demo.model.Student;
 import com.example.demo.service.StudentRegistryService;
 import org.springframework.shell.standard.ShellComponent;
