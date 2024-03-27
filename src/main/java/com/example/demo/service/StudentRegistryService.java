@@ -25,6 +25,7 @@ public class StudentRegistryService {
         Student student = new Student(nextId++, firstName, lastName, age);
         students.put(student.getId(), student);
         applicationEventPublisher.publishEvent(new StudentCreateEvent(this, student));
+
         return student;
     }
 
