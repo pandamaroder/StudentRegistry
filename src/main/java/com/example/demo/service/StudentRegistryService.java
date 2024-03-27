@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 
+import com.example.demo.listeners.StudentCreateEvent;
 import com.example.demo.model.Student;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class StudentRegistryService {
     public Student addStudent(String firstName, String lastName, int age) {
         Student student = new Student(nextId++, firstName, lastName, age);
         students.put(student.getId(), student);
-       // applicationEventPublisher.publishEvent(new StudentCreateEvent(this, student));
+        applicationEventPublisher.publishEvent(new StudentCreateEvent(this, student));
         return student;
     }
 
