@@ -5,14 +5,16 @@ import org.springframework.context.ApplicationEvent;
 
 public class StudentDeleteEvent extends ApplicationEvent {
 
-    private final Student student;
+    public Long getId() {
+        return id;
+    }
 
-    public StudentDeleteEvent(Object source, Student student) {
+    private final Long id;
+
+    public StudentDeleteEvent(Object source, Long id) {
         super(source);
-        this.student = student;
+        this.id = id;
     }
 
-    public Student getStudent() {
-        return student;
-    }
+
 }

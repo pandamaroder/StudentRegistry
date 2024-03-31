@@ -17,22 +17,22 @@ public class StudentRegistryShellHelper {
         this.studentService = studentService;
     }
 
-    @ShellMethod
+    @ShellMethod("Добавить студента")
     public void addStudent(String firstName, String lastName, int age) {
         studentService.addStudent(firstName, lastName, age);
     }
 
-    @ShellMethod
+    @ShellMethod("Удалить студента")
     public void deleteStudent(Long id) {
         studentService.deleteStudent(id);
     }
 
-    @ShellMethod
+    @ShellMethod("Получить список студентов")
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
     }
 
-    @ShellMethod
+    @ShellMethod("Очистить список студентов")
     public void clearAllStudents() {
         studentService.clearAllStudents();
     }

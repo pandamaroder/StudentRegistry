@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
 
+import com.example.demo.StudentProperties;
 import com.example.demo.listeners.StudentCreateEvent;
+import com.example.demo.listeners.StudentDeleteEvent;
 import com.example.demo.model.Student;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +27,8 @@ public class StudentRegistryService {
     public Student addStudent(String firstName, String lastName, int age) {
         Student student = new Student(nextId++, firstName, lastName, age);
         students.put(student.getId(), student);
+        StudentProperties con = new StudentProperties();
+        con.getAge();
         applicationEventPublisher.publishEvent(new StudentCreateEvent(this, student));
 
         return student;
@@ -32,6 +37,8 @@ public class StudentRegistryService {
 
     public void deleteStudent(Long id) {
         students.remove(id);
+        applicationEventPublisher.publishEvent(new StudentDeleteEvent(this, id));
+
     }
 
 
