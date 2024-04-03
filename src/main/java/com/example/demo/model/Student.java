@@ -8,11 +8,10 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 public class Student implements Serializable {
-
-        private Long id;
-        private String firstName;
-        private String lastName;
-        private int age;
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private int age;
 
 
 }

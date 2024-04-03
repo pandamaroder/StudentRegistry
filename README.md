@@ -46,3 +46,6 @@ getAllStudents
 clearAllStudents
 
 
+docker run -e STUDENT_DEFAULT_ENABLED=false 
+
+

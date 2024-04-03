@@ -4,6 +4,7 @@ import com.example.demo.model.Student;
 import com.example.demo.service.StudentRegistryService;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellMethodAvailability;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class StudentRegistryShellHelper {
     }
 
     @ShellMethod("Удалить студента")
+    //@ShellMethodAvailability()
     public void deleteStudent(Long id) {
         studentService.deleteStudent(id);
     }
