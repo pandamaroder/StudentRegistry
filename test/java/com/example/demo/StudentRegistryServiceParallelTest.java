@@ -23,7 +23,7 @@ import static com.example.demo.helpers.StudentDataHelper.getNumber;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-class StudentRegistryServiceTest {
+class StudentRegistryServiceParallelTest {
 
     @Mock
     private ApplicationEventPublisher applicationEventPublisher;
@@ -50,6 +50,7 @@ class StudentRegistryServiceTest {
 
     private Callable<Student> createAddStudentTask(StudentRegistryService studentRegistryService) {
         return () -> {
+            System.out.println("Test was started");
             String firstName = getAlphabeticString(3);
             String lastName = getAlphabeticString(7);
             int age = getNumber(2);

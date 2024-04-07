@@ -49,11 +49,4 @@ public class StudentRegistryService {
         students.clear();
         return students.isEmpty();
     }
-
-/*    public void clearAllStudents2() {
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
-        //TODO make x2 task invocations
-        executorService.invokeAll(List.of())
-    }*/
-
 }
