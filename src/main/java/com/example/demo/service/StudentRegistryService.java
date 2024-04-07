@@ -5,7 +5,6 @@ import com.example.demo.StudentProperties;
 import com.example.demo.listeners.StudentCreateEvent;
 import com.example.demo.listeners.StudentDeleteEvent;
 import com.example.demo.model.Student;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -13,8 +12,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
@@ -32,12 +29,12 @@ public class StudentRegistryService {
         applicationEventPublisher.publishEvent(new StudentCreateEvent(this, student));
         return student;
     }
+
     public Student deleteStudent(Long id) {
         Student student = students.remove(id);
         applicationEventPublisher.publishEvent(new StudentDeleteEvent(this, student));
         return student;
     }
-
 
 
     public List<Student> getAllStudents() {
