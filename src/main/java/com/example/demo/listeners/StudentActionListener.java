@@ -37,10 +37,9 @@ public class StudentActionListener {
     @EventListener
     public void handleApplicationReadyEvent(ApplicationStartedEvent event) {
         if (this.isServiceEnabled()) {
-            StudentProperties studentProperties = new StudentProperties();
-            studentRegistryService.addStudent(studentProperties.getFirstName(),
-                    studentProperties.getLastName(), studentProperties.getAge());
-            System.out.println("APP READY EVENT: APPLICATION WAS STARTED ");
+
+
+            System.out.println("APP READY EVENT: APPLICATION WAS STARTED " + event.getTimestamp());
         }
     }
 }
