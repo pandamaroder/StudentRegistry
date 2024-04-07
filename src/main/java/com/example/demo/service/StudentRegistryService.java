@@ -5,24 +5,24 @@ import com.example.demo.StudentProperties;
 import com.example.demo.listeners.StudentCreateEvent;
 import com.example.demo.listeners.StudentDeleteEvent;
 import com.example.demo.model.Student;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
+@RequiredArgsConstructor
 public class StudentRegistryService {
     private final ApplicationEventPublisher applicationEventPublisher;
     private final ConcurrentMap<Long, Student> students = new ConcurrentHashMap<>();
     private final AtomicLong nextId = new AtomicLong();
-
-    public StudentRegistryService(ApplicationEventPublisher applicationEventPublisher) {
-        this.applicationEventPublisher = applicationEventPublisher;
-    }
-
 
     public Student addStudent(String firstName, String lastName, int age) {
         Student student = new Student(nextId.incrementAndGet(), firstName, lastName, age);
@@ -32,20 +32,28 @@ public class StudentRegistryService {
         applicationEventPublisher.publishEvent(new StudentCreateEvent(this, student));
         return student;
     }
-
-
-    public void deleteStudent(Long id) {
+    public Student deleteStudent(Long id) {
         Student student = students.remove(id);
         applicationEventPublisher.publishEvent(new StudentDeleteEvent(this, student));
+        return student;
     }
+
 
 
     public List<Student> getAllStudents() {
         return List.copyOf(students.values());
     }
 
-
-    public void clearAllStudents() {
+    //TODO change return value with result validation - return students.isEmpty()
+    public boolean clearAllStudents() {
         students.clear();
+        return students.isEmpty();
     }
+
+/*    public void clearAllStudents2() {
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        //TODO make x2 task invocations
+        executorService.invokeAll(List.of())
+    }*/
+
 }

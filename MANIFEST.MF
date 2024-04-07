@@ -1,6 +1,0 @@
-Built-By: John Doe
-Built-Date: 2024-03-15
-Implementation-Version: 1.0.0
-Implementation-Vendor: My Company
-Specification-Title: My Application Specification
-Specification-Version: 1.0
