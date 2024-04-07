@@ -30,16 +30,16 @@ public class StudentActionListener {
 
     @EventListener
     public void handleStudentDeleteEvent(StudentDeleteEvent event) {
-        Long id = event.getStudent().getId();
         System.out.println("DELETION EVENT: Student was deleted");
    }
 
     @EventListener
     public void handleApplicationReadyEvent(ApplicationStartedEvent event) {
         if (this.isServiceEnabled()) {
-
-
-            System.out.println("APP READY EVENT: APPLICATION WAS STARTED " + event.getTimestamp());
+            StudentProperties studentProperties = new StudentProperties();
+            studentRegistryService.addStudent(studentProperties.getFirstName(),
+                    studentProperties.getLastName(), studentProperties.getAge());
+            System.out.println("APP READY EVENT: APPLICATION WAS STARTED ");
         }
     }
 }
