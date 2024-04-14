@@ -45,7 +45,13 @@ getAllStudents
 
 clearAllStudents
 
+```shell
+docker run -it user/demo
+```
 
-docker run -e STUDENT_DEFAULT_ENABLED=false 
+```shell
+docker run -it STUDENT_DEFAULT_ENABLED=false  user/demo
+```
+
 
 

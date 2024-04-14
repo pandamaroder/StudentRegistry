@@ -39,6 +39,7 @@ public class StudentActionListener {
             StudentProperties studentProperties = new StudentProperties();
             studentRegistryService.addStudent(studentProperties.getFirstName(),
                     studentProperties.getLastName(), studentProperties.getAge());
+            log.info("APP READY EVENT");
             System.out.println("APP READY EVENT: APPLICATION WAS STARTED ");
         }
     }

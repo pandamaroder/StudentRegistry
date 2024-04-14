@@ -2,12 +2,15 @@ package com.example.demo;
 
 import com.example.demo.model.Student;
 import com.example.demo.service.StudentRegistryService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationEventPublisher;
 
 import java.util.List;
@@ -22,10 +25,9 @@ import static com.example.demo.helpers.StudentDataHelper.getNumber;
 
 
 @SpringBootTest
-@ExtendWith(MockitoExtension.class)
 class StudentRegistryServiceParallelIntegrationTest {
 
-    @Mock
+    @MockBean
     private ApplicationEventPublisher applicationEventPublisher;
 
     @Autowired
