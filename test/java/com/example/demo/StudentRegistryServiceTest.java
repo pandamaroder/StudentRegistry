@@ -30,17 +30,17 @@ class StudentRegistryServiceTest {
     private StudentRegistryService studentRegistryService;
     private ApplicationEventPublisher applicationEventPublisher = Mockito.mock(ApplicationEventPublisher.class);
 
-    private static final String MESSAGE = "Hello World!";
+
     @BeforeEach
     void beforeEach() {
 
-        applicationEventPublisher = Mockito.mock(ApplicationEventPublisher.class);
         studentRegistryService = new StudentRegistryService(applicationEventPublisher);
 
     }
 
     @Test
     void validateAddStudent() {
+
         String firstName = getAlphabeticString(3);
         String lastName = getAlphabeticString(7);
         int age = getNumber(2);
@@ -58,7 +58,9 @@ class StudentRegistryServiceTest {
         int age = getNumber(2);
         studentRegistryService.addStudent(firstName, lastName, age);
         List<Student> allStudents = studentRegistryService.getAllStudents();
-        assertThat(allStudents.get(0))
+        assertThat(allStudents)
+                .hasSize(1)
+                .first()
                 .hasFieldOrProperty("firstName")
                 .hasFieldOrPropertyWithValue("firstName", firstName);
     }
@@ -70,7 +72,9 @@ class StudentRegistryServiceTest {
         int age = getNumber(2);
         studentRegistryService.addStudent(firstName, lastName, age);
         List<Student> allStudents = studentRegistryService.getAllStudents();
-        assertThat(allStudents.get(0))
+        assertThat(allStudents)
+                .hasSize(1)
+                .first()
                 .hasFieldOrProperty("lastName")
                 .hasFieldOrPropertyWithValue("lastName", lastName);
     }
@@ -82,7 +86,9 @@ class StudentRegistryServiceTest {
         int age = getNumber(2);
         studentRegistryService.addStudent(firstName, lastName, age);
         List<Student> allStudents = studentRegistryService.getAllStudents();
-        assertThat(allStudents.get(0))
+        assertThat(allStudents)
+                .hasSize(1)
+                .first()
                 .hasFieldOrProperty("age")
                 .hasFieldOrPropertyWithValue("age", age);
     }

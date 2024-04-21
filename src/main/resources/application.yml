@@ -4,6 +4,12 @@ student:
     firstName: Test
     lastName: TestTest
     enabled: true
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
     
-    
+shell:
+  interactive:
+    enabled: false
 

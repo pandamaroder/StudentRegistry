@@ -27,8 +27,6 @@ public class StudentRegistryService {
     public Student addStudent(String firstName, String lastName, int age) {
         Student student = new Student(nextId.incrementAndGet(), firstName, lastName, age);
         students.put(student.getId(), student);
-        StudentProperties con = new StudentProperties();
-        con.getAge();
         applicationEventPublisher.publishEvent(new StudentCreateEvent(this, student));
         log.info("CREATE STUDENT EVENT");
         return student;
